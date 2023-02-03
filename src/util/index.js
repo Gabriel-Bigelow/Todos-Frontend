@@ -1,6 +1,8 @@
+const baseURL = 'https://gabriel-bigelow-todos-backend.netlify.app/';
+
 export const createTodo = async (todo) => {
     try {
-        const response = await fetch('api/todos/create', {
+        const response = await fetch(baseURL + 'api/todos/create', {
             method: 'POST',
             body: todo,
         });
@@ -13,7 +15,7 @@ export const createTodo = async (todo) => {
 
 export const getTodos = async () => {
     try {
-        const res = await fetch('api/todos');
+        const res = await fetch(baseURL + 'api/todos');
         const data = await res.json();
         console.log(data);
         return data;
@@ -24,7 +26,7 @@ export const getTodos = async () => {
   
 export const removeTodo = async (id) => {
     try {
-        await fetch(`/api/todos/${id}`, {
+        await fetch(baseURL + `/api/todos/${id}`, {
         method: 'DELETE',
         });
         return 'deleted';
