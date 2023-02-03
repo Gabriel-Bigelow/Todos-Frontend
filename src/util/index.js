@@ -13,8 +13,9 @@ export const createTodo = async (todo) => {
 
 export const getTodos = async () => {
     try {
-        const res = await fetch('https://gabriel-bigelow-todos-backend.netlify.app/');
+        const res = await fetch('api/todos');
         const data = await res.json();
+        console.log(data);
         return data;
     } catch (error) {
         return { error };
